@@ -29,6 +29,12 @@ public class TaskList {
         return tasks.size();
     }
 
+    public void delete(int number) {
+        Task t = tasks.remove(number - 1);
+        System.out.println("Noted. I've removed this task:\n");
+        System.out.print("  " + t + "\n");
+    }
+
     public void showList() {
         if(!tasks.isEmpty()) {
             System.out.println("Here are the tasks in your list:");
