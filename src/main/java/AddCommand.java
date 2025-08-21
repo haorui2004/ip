@@ -1,13 +1,13 @@
 public class AddCommand implements Command{
-    protected String description;
-    public AddCommand(String description) {
-        this.description = description;
+    protected Task task;
+    public AddCommand(Task task) {
+        this.task = task;
     }
 
     @Override
     public void execute(TaskList tasks) {
-        Task t = new Task(description);
-        tasks.addTask(t);
-        System.out.println("added: "+ description);
+        tasks.addTask(task);
+        System.out.println("Got it. I've added this task:\n" + task);
+        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
     }
 }
