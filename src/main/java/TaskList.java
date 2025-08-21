@@ -25,6 +25,10 @@ public class TaskList {
         System.out.print("  " + t + "\n");
     }
 
+    public int size() {
+        return tasks.size();
+    }
+
     public void showList() {
         if(!tasks.isEmpty()) {
             System.out.println("Here are the tasks in your list:");
