@@ -55,7 +55,7 @@ Ok, I've marked this task as not done yet:
 ___________________________________
 ___________________________________
 Command error: That task doesn't exist
-Input error: Invalid input
+Input error: I cannot find the command OvO
 ___________________________________
 Here are the tasks in your list:
 1. [D][ ] return book (by: Sunday)
@@ -65,3 +65,8 @@ Here are the tasks in your list:
 5. [E][ ] career fair (from: Wed 3pm to: 5pm)
 ___________________________________
 Input error: Please check the format of task input again!
+Input error: Only number can come after mark!
+Input error: I cannot find the command OvO
+Input error: I cannot find the command OvO
+Input error: I cannot find the command OvO
+Input error: I cannot find the command OvO
