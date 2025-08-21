@@ -102,6 +102,16 @@ public class Nina {
             return new AddCommand(ev);
         }
 
+        if(str.startsWith("delete ")) {
+            String taskNo = str.substring(7).trim();
+            try{
+                int number = Integer.parseInt(taskNo);
+                return new DeleteCommand(number);
+            } catch (NumberFormatException e) {
+                throw new InvalidInputException("Only number can come after delete!");
+            }
+        }
+
         throw new InvalidInputException("I cannot find the command OvO");
     }
 
