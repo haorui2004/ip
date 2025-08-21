@@ -54,11 +54,23 @@ public class Nina {
         }
 
         if(str.startsWith("mark ")) {
-            return new MarkCommand(Integer.parseInt(str.substring(5).trim()));
+            String taskNo = str.substring(5).trim();
+            try{
+                int number = Integer.parseInt(taskNo);
+                return new MarkCommand(number);
+            } catch (NumberFormatException e) {
+                throw new InvalidInputException("Only number can come after mark!");
+            }
         }
 
         if(str.startsWith("unmark ")) {
-            return new UnmarkCommand(Integer.parseInt(str.substring(7).trim()));
+            String taskNo = str.substring(7).trim();
+            try{
+                int number = Integer.parseInt(taskNo);
+                return new UnmarkCommand(number);
+            } catch (NumberFormatException e) {
+                throw new InvalidInputException("Only number can come after unmark!");
+            }
         }
 
         if(str.startsWith("todo ")) {
@@ -90,7 +102,7 @@ public class Nina {
             return new AddCommand(ev);
         }
 
-        throw new InvalidInputException("Invalid input");
+        throw new InvalidInputException("I cannot find the command OvO");
     }
 
     public static void main(String[] args) {
