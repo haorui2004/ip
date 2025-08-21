@@ -31,14 +31,22 @@ public class Nina {
                 break;
             }
 
-            Command cmd = createCommand(input);
-            System.out.print(line);
-            cmd.execute(tasks);
-            System.out.print(line);
+            try {
+                Command cmd = createCommand(input);
+                System.out.print(line);
+                cmd.execute(tasks);
+                System.out.print(line);
+            } catch (CommandException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
-    public Command createCommand(String str) {
+    public Command createCommand(String str) throws CommandException{
+        if(str.isEmpty()) {
+            throw new CommandException("The command is empty");
+        }
+
         if(str.equals("list")) {
             return new ListCommand();
         }

@@ -6,7 +6,11 @@ public class UnmarkCommand implements Command{
     }
 
     @Override
-    public void execute(TaskList tasks) {
-        tasks.unmark(index);
+    public void execute(TaskList tasks) throws CommandException{
+        try{
+            tasks.unmark(index);
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException("That task doesn't exist");
+        }
     }
 }

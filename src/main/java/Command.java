@@ -1,3 +1,3 @@
 public interface Command {
-    void execute(TaskList tasks);
+    void execute(TaskList tasks) throws CommandException;
 }

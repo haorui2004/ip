@@ -5,7 +5,11 @@ public class MarkCommand implements Command{
     }
 
     @Override
-    public void execute(TaskList tasks) {
-        tasks.mark(index);
+    public void execute(TaskList tasks) throws CommandException{
+        try{
+            tasks.mark(index);
+        } catch (IndexOutOfBoundsException e){
+            throw new CommandException("That task doesn't exist");
+        }
     }
 }
