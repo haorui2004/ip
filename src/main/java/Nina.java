@@ -37,12 +37,14 @@ public class Nina {
                 cmd.execute(tasks);
                 System.out.print(line);
             } catch (CommandException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Command error: " + e.getMessage());
+            } catch (InvalidInputException i) {
+                System.out.println("Input error: " + i.getMessage());
             }
         }
     }
 
-    public Command createCommand(String str) throws CommandException{
+    public Command createCommand(String str) throws CommandException, InvalidInputException{
         if(str.isEmpty()) {
             throw new CommandException("The command is empty");
         }
@@ -67,6 +69,9 @@ public class Nina {
 
         if(str.startsWith("deadline ")) {
             String[] parts = str.substring(9).split("/by", 2);
+            if(parts.length < 2) {
+                throw new InvalidInputException("Please check the format of task input again!");
+            }
             String des = parts[0].trim();
             String by = parts[1].trim();
             DeadlineTask ddl = new DeadlineTask(des, by);
@@ -75,6 +80,9 @@ public class Nina {
 
         if(str.startsWith("event ")) {
             String[] parts = str.substring(6).split("/from|/to");
+            if(parts.length < 3) {
+                throw new InvalidInputException("Please check the format of task input again!");
+            }
             String des = parts[0].trim();
             String from = parts[1].trim();
             String to = parts[2].trim();
@@ -82,7 +90,7 @@ public class Nina {
             return new AddCommand(ev);
         }
 
-        throw new CommandException("Invalid input");
+        throw new InvalidInputException("Invalid input");
     }
 
     public static void main(String[] args) {
