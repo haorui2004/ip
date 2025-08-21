@@ -58,7 +58,31 @@ public class Nina {
         if(str.startsWith("unmark ")) {
             return new UnmarkCommand(Integer.parseInt(str.substring(7).trim()));
         }
-        return new AddCommand(str);
+
+        if(str.startsWith("todo ")) {
+            String des = str.substring(5).trim();
+            TodoTask td = new TodoTask(des);
+            return new AddCommand(td);
+        }
+
+        if(str.startsWith("deadline ")) {
+            String[] parts = str.substring(9).split("/by", 2);
+            String des = parts[0].trim();
+            String by = parts[1].trim();
+            DeadlineTask ddl = new DeadlineTask(des, by);
+            return new AddCommand(ddl);
+        }
+
+        if(str.startsWith("event ")) {
+            String[] parts = str.substring(6).split("/from|/to");
+            String des = parts[0].trim();
+            String from = parts[1].trim();
+            String to = parts[2].trim();
+            EventTask ev = new EventTask(des, from, to);
+            return new AddCommand(ev);
+        }
+
+        throw new CommandException("Invalid input");
     }
 
     public static void main(String[] args) {
