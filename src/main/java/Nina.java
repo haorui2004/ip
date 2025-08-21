@@ -1,53 +1,61 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Nina {
     static String line = "___________________________________\n";
-    static ArrayList<String> tasks = new ArrayList<>();
+    protected TaskList tasks;
 
-    public static void greet() {
+    public Nina() {
+        tasks = new TaskList();
+    }
+
+    public void greet() {
         System.out.print(line);
         System.out.println("Hello, I am your personal assistant Nina\n" +
                 "What can I do for you?");
         System.out.print(line);
     }
 
-    public static void exit() {
+    public void exit() {
         System.out.print(line);
         System.out.println("See you again soon!");
         System.out.print(line);
     }
 
-    public void echo() {
+    public void run() {
         Scanner sc = new Scanner(System.in);
         while(sc.hasNextLine()) {
-            String command = sc.nextLine();
+            String input = sc.nextLine();
 
-            if(command.equals("list")) {
-                System.out.print(line);
-                for(int i =0; i< tasks.size(); i++) {
-                    System.out.println((i + 1) + ". " + tasks.get(i));
-                }
-                System.out.print(line);
-                continue;
-            }
-
-            tasks.add(command);
-
-            if (command.equals("bye")) {
-                exit();
+            if (input.equals("bye")) {
+                this.exit();
                 break;
             }
 
+            Command cmd = createCommand(input);
             System.out.print(line);
-            System.out.println("added: "+ command);
+            cmd.execute(tasks);
             System.out.print(line);
         }
     }
 
+    public Command createCommand(String str) {
+        if(str.equals("list")) {
+            return new ListCommand();
+        }
+
+        if(str.startsWith("mark ")) {
+            return new MarkCommand(Integer.parseInt(str.substring(5).trim()));
+        }
+
+        if(str.startsWith("unmark ")) {
+            return new UnmarkCommand(Integer.parseInt(str.substring(7).trim()));
+        }
+        return new AddCommand(str);
+    }
+
     public static void main(String[] args) {
         Nina test = new Nina();
-        greet();
-        test.echo();
+        test.greet();
+        test.run();
     }
 }
