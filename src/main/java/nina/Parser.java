@@ -1,5 +1,13 @@
+package nina;
+
+import nina.command.*;
+import nina.task.DeadlineTask;
+import nina.task.EventTask;
+import nina.task.TodoTask;
+
+
 public class Parser {
-    public static Command parse (String str) throws CommandException, InvalidInputException{
+    public static Command parse (String str) throws CommandException, InvalidInputException {
         if(str.isEmpty()) {
             throw new CommandException("The command is empty");
         }

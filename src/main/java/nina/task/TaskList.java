@@ -1,3 +1,5 @@
+package nina.task;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 

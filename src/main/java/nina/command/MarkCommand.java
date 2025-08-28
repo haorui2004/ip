@@ -1,11 +1,16 @@
-public class MarkCommand implements Command{
+package nina.command;
+
+import nina.CommandException;
+import nina.task.TaskList;
+
+public class MarkCommand implements Command {
     protected int index;
     public MarkCommand(int index) {
         this.index = index;
     }
 
     @Override
-    public void execute(TaskList tasks) throws CommandException{
+    public void execute(TaskList tasks) throws CommandException {
         try{
             tasks.mark(index);
         } catch (IndexOutOfBoundsException e){

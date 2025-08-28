@@ -1,7 +1,9 @@
+package nina.task;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class EventTask extends Task{
+public class EventTask extends Task {
     protected LocalDate from;
     protected LocalDate to;
     private static final long serialVersionUID = 10L;
