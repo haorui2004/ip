@@ -30,6 +30,10 @@ public abstract class Task implements Serializable {
 
     public abstract String toSaveLine();
 
+    public boolean match(String keyword) {
+        return description.contains(keyword);
+    }
+
     public static Task fromSaveLine(String line) {
         String[] p = line.split("\\|");
         for (int i = 0; i < p.length; i++) {
