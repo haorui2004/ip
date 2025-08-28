@@ -1,20 +1,24 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class DeadlineTask extends Task{
 
-    protected String by;
+    protected LocalDate by;
     private static final long serialVersionUID = 10L;
 
     public DeadlineTask(String description, String by) {
         super(description);
-        this.by = by;
+        this.by = LocalDate.parse(by);
     }
 
     @Override
     public String toSaveLine() {
-        return basePrefix("D") + " | " + by;
+        return basePrefix("D") + " | " + by.toString();
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + this.by + ")";
+        return "[D]" + super.toString() + " (by: " + by.format(DateTimeFormatter.ofPattern("MMM dd yyyy"))  + ")";
     }
 }
