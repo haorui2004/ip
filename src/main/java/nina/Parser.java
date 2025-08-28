@@ -75,6 +75,11 @@ public class Parser {
             }
         }
 
+        if(str.startsWith("find ")) {
+            String keyword = str.substring(5).trim();
+            return new FindCommand(keyword);
+        }
+
         throw new InvalidInputException("I cannot find the command OvO");
     }
 }
