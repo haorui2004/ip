@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TaskList {
+public class TaskList implements Serializable {
     protected ArrayList<Task> tasks;
+    private static final long serialVersionUID = 10L;
 
     public TaskList() {
         this.tasks = new ArrayList<>();
@@ -42,5 +44,9 @@ public class TaskList {
                 System.out.println((i + 1) + ". " + tasks.get(i));
             }
         }
+    }
+
+    public java.lang.Iterable<Task> items() {
+        return java.util.Collections.unmodifiableList(tasks);
     }
 }

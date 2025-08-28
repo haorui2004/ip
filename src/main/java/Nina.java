@@ -3,9 +3,11 @@ import java.util.Scanner;
 public class Nina {
     static String line = "___________________________________\n";
     protected TaskList tasks;
+    private Storage storage;
 
     public Nina() {
-        tasks = new TaskList();
+        this.storage = new Storage("data/Nina.txt");
+        this.tasks = storage.read();
     }
 
     public void greet() {
@@ -35,6 +37,7 @@ public class Nina {
                 Command cmd = createCommand(input);
                 System.out.print(line);
                 cmd.execute(tasks);
+                storage.write(tasks);
                 System.out.print(line);
             } catch (CommandException e) {
                 System.out.println("Command error: " + e.getMessage());
