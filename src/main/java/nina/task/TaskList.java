@@ -33,6 +33,10 @@ public class TaskList implements Serializable {
         return tasks.size();
     }
 
+    public Task get(int index) {
+        return tasks.get(index);
+    }
+
     public void delete(int number) {
         Task t = tasks.remove(number - 1);
         System.out.println("Noted. I've removed this task:\n");
