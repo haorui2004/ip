@@ -1,4 +1,9 @@
-public class UnmarkCommand implements Command{
+package nina.command;
+
+import nina.CommandException;
+import nina.task.TaskList;
+
+public class UnmarkCommand implements Command {
     protected int index;
 
     public UnmarkCommand(int index) {
@@ -6,7 +11,7 @@ public class UnmarkCommand implements Command{
     }
 
     @Override
-    public void execute(TaskList tasks) throws CommandException{
+    public void execute(TaskList tasks) throws CommandException {
         try{
             tasks.unmark(index);
         } catch (IndexOutOfBoundsException e) {

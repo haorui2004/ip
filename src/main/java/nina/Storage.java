@@ -1,3 +1,8 @@
+package nina;
+
+import nina.task.Task;
+import nina.task.TaskList;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,7 +38,7 @@ public class Storage {
             }
 
         } catch (IOException e) {
-            System.err.println("[Storage] read error: " + e.getMessage());
+            System.err.println("[nina.Storage] read error: " + e.getMessage());
         }
         return list;
     }
@@ -48,7 +53,7 @@ public class Storage {
                 }
             }
         } catch (IOException e) {
-            System.err.println("[Storage] write error: " + e.getMessage());
+            System.err.println("[nina.Storage] write error: " + e.getMessage());
         }
     }
 }

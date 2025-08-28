@@ -1,5 +1,5 @@
 ___________________________________
-Hello, I am your personal assistant Nina
+Hello, I am your personal assistant nina.Nina
 What can I do for you?
 ___________________________________
 ___________________________________
@@ -54,7 +54,7 @@ Ok, I've marked this task as not done yet:
   [D][ ] return book (by: Sunday)
 ___________________________________
 ___________________________________
-Command error: That task doesn't exist
+nina.command.Command error: That task doesn't exist
 Input error: I cannot find the command OvO
 ___________________________________
 Here are the tasks in your list:

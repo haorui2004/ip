@@ -1,3 +1,8 @@
+package nina;
+
+import nina.command.Command;
+import nina.task.TaskList;
+
 import java.util.Scanner;
 
 public class Nina {
@@ -7,7 +12,7 @@ public class Nina {
     private UI ui;
 
     public Nina() {
-        this.storage = new Storage("data/Nina.txt");
+        this.storage = new Storage("data/nina.Nina.txt");
         this.tasks = storage.read();
         this.ui = new UI();
     }
@@ -30,7 +35,7 @@ public class Nina {
                 storage.write(tasks);
                 System.out.print(line);
             } catch (CommandException e) {
-                ui.showError("Command error: " + e.getMessage());
+                ui.showError("nina.command.Command error: " + e.getMessage());
             } catch (InvalidInputException i) {
                 ui.showError("Input error: " + i.getMessage());
             }

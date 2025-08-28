@@ -1,9 +1,11 @@
+package nina;
+
 public class UI {
     static String line = "___________________________________\n";
 
     public void greet() {
         System.out.print(line);
-        System.out.println("Hello, I am your personal assistant Nina\n" +
+        System.out.println("Hello, I am your personal assistant nina.Nina\n" +
                 "What can I do for you?");
         System.out.print(line);
     }
