@@ -3,6 +3,11 @@ package nina.task;
 public class TodoTask extends Task {
     private static final long serialVersionUID = 10L;
 
+    /**
+     * Constructs a TodoTask object
+     *
+     * @param description description of the task
+     */
     public TodoTask(String description) {
         super(description);
     }
