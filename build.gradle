@@ -28,7 +28,7 @@ test {
 }
 
 application {
-    mainClass.set("nina.Nina.main")
+    mainClass.set("Nina.main")
 }
 
 shadowJar {
