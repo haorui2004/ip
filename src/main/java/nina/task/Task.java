@@ -62,6 +62,10 @@ public abstract class Task implements Serializable {
      */
     public abstract String toSaveLine();
 
+    public boolean match(String keyword) {
+        return description.contains(keyword);
+    }
+
     /**
      * Creates a Task object from a saved line string.
      *
