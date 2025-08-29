@@ -5,6 +5,7 @@ import nina.task.TaskList;
 
 public class DeleteCommand implements Command {
     protected int index;
+
     public DeleteCommand(int index) {
         this.index = index;
     }
