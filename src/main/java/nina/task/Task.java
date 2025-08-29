@@ -2,34 +2,73 @@ package nina.task;
 
 import java.io.Serializable;
 
+/**
+ * Represents a generic task with a description and completion status.
+ */
 public abstract class Task implements Serializable {
     protected String description;
     protected boolean isDone;
     private static final long serialVersionUID = 10L;
 
+    /**
+     * Constructs a Task object with the specified description.
+     * The task is initially marked as not done.
+     *
+     * @param description description of the task
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
     }
 
+    /**
+     * Marks this task as done.
+     */
     public void markDone() {
         isDone = true;
     }
 
+    /**
+     * Marks this task as not done.
+     */
     public void unmarkDone(){
         isDone = false;
     }
 
+    /**
+     * Returns the status icon of the task.
+     *
+     * @return X if done, blank space if not done
+     */
     public String getStatusIcon() {
         return (isDone ? "X" : " ");
     }
 
+    /**
+     * Returns the base prefix for serialization.
+     * Used by subclasses when generating save lines.
+     *
+     * @param type the short type identifier: T/D/E
+     * @return a string prefix containing the type, done status, and description
+     */
     protected String basePrefix(String type) {
         return type + " | " + (isDone ? "1" : "0") + " | " + description;
     }
 
+    /**
+     * Converts this task into a save line string for storage.
+     *
+     * @return the save line string representation of the task
+     */
     public abstract String toSaveLine();
 
+    /**
+     * Creates a Task object from a saved line string.
+     *
+     * @param line the saved line string
+     * @return a Task object parsed from the saved line
+     * @throws IllegalArgumentException if the line is not well formatted or task type is unknown
+     */
     public static Task fromSaveLine(String line) {
         String[] p = line.split("\\|");
         for (int i = 0; i < p.length; i++) {

@@ -11,12 +11,23 @@ public class Nina {
     private Storage storage;
     private UI ui;
 
+    /**
+     * Creates a Nina chatbot object.
+     * Initializes storage, read tasks from file, and sets up the UI.
+     */
     public Nina() {
-        this.storage = new Storage("data/nina.Nina.txt");
+        this.storage = new Storage("data/Nina.txt");
         this.tasks = storage.read();
         this.ui = new UI();
     }
 
+    /**
+     * Runs the main program loop.
+     * Displays a greeting, continuously reads user input,
+     * parses it into a Command object, executes the command,
+     * and saves the updated tasks. The loop terminates when the user
+     * enters the bye command.
+     */
     public void run() {
         ui.greet();
         Scanner sc = new Scanner(System.in);
@@ -42,6 +53,11 @@ public class Nina {
         }
     }
 
+    /**
+     * Main entry point of the program.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Nina test = new Nina();
         test.run();

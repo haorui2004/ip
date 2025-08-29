@@ -8,6 +8,13 @@ public class EventTask extends Task {
     protected LocalDate to;
     private static final long serialVersionUID = 10L;
 
+    /**
+     * Constructs a EventTask object
+     *
+     * @param description description of the task
+     * @param from the start time of the event task
+     * @param to the end time of the event task
+     */
     public EventTask(String description, String from, String to) {
         super(description);
         this.from = LocalDate.parse(from);

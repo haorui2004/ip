@@ -5,6 +5,12 @@ import nina.task.TaskList;
 
 public class AddCommand implements Command {
     protected Task task;
+
+    /**
+     * Constructs a AddCommand object.
+     *
+     * @param task task to be added into the tasks list
+     */
     public AddCommand(Task task) {
         this.task = task;
     }
