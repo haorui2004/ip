@@ -18,17 +18,17 @@ public class Parser {
      * @throws InvalidInputException if the input format is invalid
      */
     public static Command parse (String str) throws CommandException, InvalidInputException {
-        if(str.isEmpty()) {
+        if (str.isEmpty()) {
             throw new CommandException("The command is empty");
         }
 
-        if(str.equals("list")) {
+        if (str.equals("list")) {
             return new ListCommand();
         }
 
-        if(str.startsWith("mark ")) {
+        if (str.startsWith("mark ")) {
             String taskNo = str.substring(5).trim();
-            try{
+            try {
                 int number = Integer.parseInt(taskNo);
                 return new MarkCommand(number);
             } catch (NumberFormatException e) {
@@ -36,9 +36,9 @@ public class Parser {
             }
         }
 
-        if(str.startsWith("unmark ")) {
+        if (str.startsWith("unmark ")) {
             String taskNo = str.substring(7).trim();
-            try{
+            try {
                 int number = Integer.parseInt(taskNo);
                 return new UnmarkCommand(number);
             } catch (NumberFormatException e) {
@@ -46,15 +46,15 @@ public class Parser {
             }
         }
 
-        if(str.startsWith("todo ")) {
+        if (str.startsWith("todo ")) {
             String des = str.substring(5).trim();
             TodoTask td = new TodoTask(des);
             return new AddCommand(td);
         }
 
-        if(str.startsWith("deadline ")) {
+        if (str.startsWith("deadline ")) {
             String[] parts = str.substring(9).split("/by", 2);
-            if(parts.length < 2) {
+            if (parts.length < 2) {
                 throw new InvalidInputException("Please check the format of task input again!");
             }
             String des = parts[0].trim();
@@ -63,9 +63,9 @@ public class Parser {
             return new AddCommand(ddl);
         }
 
-        if(str.startsWith("event ")) {
+        if (str.startsWith("event ")) {
             String[] parts = str.substring(6).split("/from|/to");
-            if(parts.length < 3) {
+            if (parts.length < 3) {
                 throw new InvalidInputException("Please check the format of task input again!");
             }
             String des = parts[0].trim();
@@ -75,9 +75,9 @@ public class Parser {
             return new AddCommand(ev);
         }
 
-        if(str.startsWith("delete ")) {
+        if (str.startsWith("delete ")) {
             String taskNo = str.substring(7).trim();
-            try{
+            try {
                 int number = Integer.parseInt(taskNo);
                 return new DeleteCommand(number);
             } catch (NumberFormatException e) {

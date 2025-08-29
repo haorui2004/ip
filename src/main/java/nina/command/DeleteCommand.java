@@ -11,6 +11,7 @@ public class DeleteCommand implements Command {
      *
      * @param index index of the task to be deleted
      */
+
     public DeleteCommand(int index) {
         this.index = index;
     }
