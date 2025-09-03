@@ -1,6 +1,7 @@
 package nina.command;
 
 import nina.CommandException;
+import nina.task.Task;
 import nina.task.TaskList;
 
 public class MarkCommand implements Command {
@@ -17,11 +18,13 @@ public class MarkCommand implements Command {
     }
 
     @Override
-    public void execute(TaskList tasks) throws CommandException {
+    public String execute(TaskList tasks) throws CommandException {
         try {
-            tasks.mark(index);
-        } catch (IndexOutOfBoundsException e){
-            throw new CommandException("That task doesn't exist");
+            Task t = tasks.get(index - 1);
+            t.markDone();
+            return "Nice! I've marked this task as done:\n  " + t;
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException("That task doesn't exist.");
         }
     }
 }

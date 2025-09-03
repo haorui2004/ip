@@ -17,10 +17,10 @@ public class DeleteCommand implements Command {
     }
 
     @Override
-    public void execute(TaskList tasks) throws CommandException {
-        try{
+    public String execute(TaskList tasks) throws CommandException {
+        try {
             tasks.delete(index);
-            System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+            return "Now you have " + tasks.size() + " tasks in the list.";
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("That task doesn't exist");
         }

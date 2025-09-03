@@ -4,7 +4,7 @@ import nina.task.TaskList;
 
 public class ListCommand implements Command {
     @Override
-    public void execute(TaskList tasks) {
-        tasks.showList();
+    public String execute(TaskList tasks) {
+        return tasks.showList();
     }
 }
