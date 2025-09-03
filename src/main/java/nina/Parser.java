@@ -3,6 +3,7 @@ package nina;
 import nina.command.*;
 import nina.task.DeadlineTask;
 import nina.task.EventTask;
+import nina.task.TaskList;
 import nina.task.TodoTask;
 
 /**
@@ -85,7 +86,7 @@ public class Parser {
             }
         }
 
-        if(str.startsWith("find ")) {
+        if (str.startsWith("find ")) {
             String keyword = str.substring(5).trim();
             return new FindCommand(keyword);
         }

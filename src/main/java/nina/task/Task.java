@@ -31,7 +31,7 @@ public abstract class Task implements Serializable {
     /**
      * Marks this task as not done.
      */
-    public void unmarkDone(){
+    public void unmarkDone() {
         isDone = false;
     }
 
@@ -86,22 +86,30 @@ public abstract class Task implements Serializable {
 
         Task t;
         switch (type) {
-            case "T":
-                if (p.length != 3) throw new IllegalArgumentException("Todo needs 3 fields");
-                t = new TodoTask(des);
-                break;
-            case "D":
-                if (p.length != 4) throw new IllegalArgumentException("Deadline needs 4 fields");
-                t = new DeadlineTask(des, p[3]);
-                break;
-            case "E":
-                if (p.length != 5) throw new IllegalArgumentException("Event needs 5 fields");
-                t = new EventTask(des, p[3], p[4]);
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown type: " + type);
+        case "T":
+            if (p.length != 3) {
+                throw new IllegalArgumentException("Todo needs 3 fields");
+            }
+            t = new TodoTask(des);
+            break;
+        case "D":
+            if (p.length != 4) {
+                throw new IllegalArgumentException("Deadline needs 4 fields");
+            }
+            t = new DeadlineTask(des, p[3]);
+            break;
+        case "E":
+            if (p.length != 5) {
+                throw new IllegalArgumentException("Event needs 5 fields");
+            }
+            t = new EventTask(des, p[3], p[4]);
+            break;
+        default:
+            throw new IllegalArgumentException("Unknown type: " + type);
         }
-        if (done) t.markDone();
+        if (done) {
+            t.markDone();
+        }
         return t;
     }
 

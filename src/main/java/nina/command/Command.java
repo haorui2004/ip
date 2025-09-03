@@ -14,5 +14,5 @@ public interface Command {
      * @param tasks the task list the command operates on
      * @throws CommandException if the command cannot be executed successfully
      */
-    void execute(TaskList tasks) throws CommandException;
+    String execute(TaskList tasks) throws CommandException;
 }

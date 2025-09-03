@@ -1,6 +1,7 @@
 package nina.command;
 
 import nina.CommandException;
+import nina.task.Task;
 import nina.task.TaskList;
 
 public class UnmarkCommand implements Command {
@@ -16,11 +17,13 @@ public class UnmarkCommand implements Command {
     }
 
     @Override
-    public void execute(TaskList tasks) throws CommandException {
+    public String execute(TaskList tasks) throws CommandException {
         try {
-            tasks.unmark(index);
+            Task t = tasks.get(index - 1);
+            t.unmarkDone();
+            return "Ok, I've marked this task as not done yet:" + t;
         } catch (IndexOutOfBoundsException e) {
-            throw new CommandException("That task doesn't exist");
+            throw new CommandException("That task doesn't exist.");
         }
     }
 }

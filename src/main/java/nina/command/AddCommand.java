@@ -16,9 +16,10 @@ public class AddCommand implements Command {
     }
 
     @Override
-    public void execute(TaskList tasks) {
+    public String execute(TaskList tasks) {
         tasks.addTask(task);
-        System.out.println("Got it. I've added this task:\n" + task);
-        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
+        return "Got it. I've added this task:\n"
+                + task
+                + "\nNow you have " + tasks.size() + " tasks in the list.";
     }
 }

@@ -17,7 +17,6 @@ public class Nina {
      * Initializes storage, read tasks from file, and sets up the UI.
      */
     public Nina() {
-        this.storage = new Storage("data/Nina.txt");
         this.storage = new Storage(STORAGE_FILE_PATH);
         this.tasks = storage.read();
         this.ui = new UI();
@@ -55,6 +54,28 @@ public class Nina {
         }
     }
 
+    public String getResponse(String input) {
+        String trimmed = input.trim();
+
+        if (trimmed.equals("greet")) {
+            return ui.greet();
+        }
+
+        if (trimmed.equals("bye")) {
+            return ui.exit();
+        }
+
+        try {
+            Command cmd = Parser.parse(input);
+            String response = cmd.execute(tasks);
+            storage.write(tasks);
+            return response;
+        } catch (CommandException c) {
+            return ui.showError(c.getMessage());
+        } catch (InvalidInputException i) {
+            return ui.showError(i.getMessage());
+        }
+    }
     /**
      * Main entry point of the program.
      *

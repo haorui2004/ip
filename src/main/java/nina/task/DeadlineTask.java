@@ -12,7 +12,7 @@ public class DeadlineTask extends Task {
      * Constructs a DeadlineTask object
      *
      * @param description description of the task
-     * @param by the deadline time of the task
+     * @param by the deadline date of the task, in ISO format, YYYY-MM-DD
      */
     public DeadlineTask(String description, String by) {
         super(description);
