@@ -1,28 +1,27 @@
 package nina;
 
+import static nina.Nina.LINE;
+
 /**
  * Handles user interactions with the program
  */
 public class UI {
-    private static String line = "___________________________________\n";
 
     /**
      * Prints the greeting message when the program starts.
      */
-    public void greet() {
-        System.out.print(line);
-        System.out.println("Hello, I am your personal assistant nina.Nina\n" +
-                "What can I do for you?");
-        System.out.print(line);
+    public String greet() {
+        return LINE + "Hello, I am your personal assistant nina.Nina\n"
+                + "What can I do for you?\n" + LINE;
     }
 
     /**
      * Prints the exit message when the program is about to terminate.
      */
-    public void exit() {
-        System.out.print(line);
-        System.out.println("See you again soon!");
-        System.out.print(line);
+    public String exit() {
+        return LINE
+                + "See you again soon!\n"
+                + LINE;
     }
 
     /**
@@ -30,8 +29,8 @@ public class UI {
      *
      * @param msg The error message to be displayed
      */
-    public void showError(String msg) {
-        System.out.println("OOPS!!! " + msg);
+    public String showError(String msg) {
+        return "OOPS!!! " + msg;
     }
 
 }

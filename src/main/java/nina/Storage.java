@@ -36,8 +36,12 @@ public class Storage {
      * @throws IOException if the directory or file cannot be created
      */
     private void ensureFile() throws IOException {
-        if (Files.notExists(dirPath)) Files.createDirectories(dirPath);
-        if (Files.notExists(filePath)) Files.createFile(filePath);
+        if (Files.notExists(dirPath)) {
+            Files.createDirectories(dirPath);
+        }
+        if (Files.notExists(filePath)) {
+            Files.createFile(filePath);
+        }
     }
 
     /**
