@@ -56,13 +56,13 @@ public class Nina {
     }
 
     public String getResponse(String input) {
-        String trimmed = input.trim();
+        String trimmedInput = input.trim();
 
-        if (trimmed.equals("greet")) {
+        if (trimmedInput.equals("greet")) {
             return ui.greet();
         }
 
-        if (trimmed.equals("bye")) {
+        if (trimmedInput.equals("bye")) {
             return ui.exit();
         }
 

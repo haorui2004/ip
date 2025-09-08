@@ -80,7 +80,7 @@ public class Storage {
             ensureFile();
             try (BufferedWriter w = new BufferedWriter(new FileWriter(filePath.toFile()))) {
                 for (Task t : tasksToStore.items()) {
-                    w.write(t.toSaveLine());
+                    w.write(t.toSaveableLine());
                     w.newLine();
                 }
             }
