@@ -60,7 +60,7 @@ public abstract class Task implements Serializable {
      *
      * @return the save line string representation of the task
      */
-    public abstract String toSaveLine();
+    public abstract String toSaveableLine();
 
     public boolean match(String keyword) {
         return description.contains(keyword);

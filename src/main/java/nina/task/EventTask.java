@@ -22,7 +22,7 @@ public class EventTask extends Task {
     }
 
     @Override
-    public String toSaveLine() {
+    public String toSaveableLine() {
         return basePrefix("E") + " | " + from.toString() + " | " + to.toString();
     }
 

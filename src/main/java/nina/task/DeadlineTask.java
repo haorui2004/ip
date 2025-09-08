@@ -20,7 +20,7 @@ public class DeadlineTask extends Task {
     }
 
     @Override
-    public String toSaveLine() {
+    public String toSaveableLine() {
         return basePrefix("D") + " | " + by.toString();
     }
 
