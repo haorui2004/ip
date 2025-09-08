@@ -1,9 +1,9 @@
 package nina;
 
+import java.util.Scanner;
+
 import nina.command.Command;
 import nina.task.TaskList;
-
-import java.util.Scanner;
 
 public class Nina {
     static String LINE = "___________________________________\n";
