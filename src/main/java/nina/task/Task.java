@@ -78,6 +78,7 @@ public abstract class Task implements Serializable {
         for (int i = 0; i < p.length; i++) {
             p[i] = p[i].trim();
         }
+
         if (p.length < 3) throw new IllegalArgumentException("Bad line: " + line);
 
         String type = p[0];
