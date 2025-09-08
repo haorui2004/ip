@@ -65,6 +65,8 @@ public class Parser {
             }
             String des = parts[0].trim();
             String by = parts[1].trim();
+            assert !des.isEmpty() : "DeadlineTask description must not be empty";
+            assert !by.isEmpty() : "DeadlineTask by date must not be empty";
             DeadlineTask ddl = new DeadlineTask(des, by);
             return new AddCommand(ddl);
         }
@@ -77,6 +79,9 @@ public class Parser {
             String des = parts[0].trim();
             String from = parts[1].trim();
             String to = parts[2].trim();
+            assert !des.isEmpty() : "EventTask description must not be empty";
+            assert !from.isEmpty() : "EventTask from date must not be empty";
+            assert !to.isEmpty() : "EventTask to date must not be empty";
             EventTask ev = new EventTask(des, from, to);
             return new AddCommand(ev);
         }
@@ -93,6 +98,9 @@ public class Parser {
 
         if (str.startsWith("find ")) {
             String keyword = str.substring(5).trim();
+            if (keyword.isEmpty()) {
+                throw new InvalidInputException("FindCommand needs a keyword for searching");
+            }
             return new FindCommand(keyword);
         }
 

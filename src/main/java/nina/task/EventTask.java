@@ -12,8 +12,8 @@ public class EventTask extends Task {
      * Constructs a EventTask object
      *
      * @param description description of the task
-     * @param from the start time of the event task
-     * @param to the end time of the event task
+     * @param from the start time of the event task in format yyyy-MM-dd
+     * @param to the end time of the event task in format yyyy-MM-dd
      */
     public EventTask(String description, String from, String to) {
         super(description);
