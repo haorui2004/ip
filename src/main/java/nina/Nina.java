@@ -7,10 +7,11 @@ import java.util.Scanner;
 
 public class Nina {
     static String LINE = "___________________________________\n";
+    private static final String STORAGE_FILE_PATH = "data/nina.Nina.txt";
     private TaskList tasks;
     private Storage storage;
     private UI ui;
-    private static final String STORAGE_FILE_PATH = "data/nina.Nina.txt";
+
 
     /**
      * Creates a Nina chatbot object.

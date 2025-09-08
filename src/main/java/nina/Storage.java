@@ -42,6 +42,8 @@ public class Storage {
         if (Files.notExists(filePath)) {
             Files.createFile(filePath);
         }
+        assert !Files.notExists(dirPath) : "dirPath does not exist for data storage";
+        assert !Files.notExists(filePath) : "filePath does not exist for data storage";
     }
 
     /**
