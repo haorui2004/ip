@@ -1,9 +1,14 @@
 package nina;
 
-import nina.command.*;
+import nina.command.AddCommand;
+import nina.command.Command;
+import nina.command.DeleteCommand;
+import nina.command.FindCommand;
+import nina.command.ListCommand;
+import nina.command.MarkCommand;
+import nina.command.UnmarkCommand;
 import nina.task.DeadlineTask;
 import nina.task.EventTask;
-import nina.task.TaskList;
 import nina.task.TodoTask;
 
 /**
@@ -18,7 +23,7 @@ public class Parser {
      * @throws CommandException if the input is empty
      * @throws InvalidInputException if the input format is invalid
      */
-    public static Command parse (String str) throws CommandException, InvalidInputException {
+    public static Command parse(String str) throws CommandException, InvalidInputException {
         if (str.isEmpty()) {
             throw new CommandException("The command is empty");
         }
