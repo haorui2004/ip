@@ -27,6 +27,12 @@ public class EventTask extends Task {
     }
 
     @Override
+    public String deDupKey() {
+        return this.getClass().getName() + "|" + normalizeKey(this.description) + "|" + this.from + "|" + this.to;
+    }
+
+
+    @Override
     public String toString() {
         return "[E]" + super.toString() + " (from: " + from.format(DateTimeFormatter.ofPattern("MMM dd yyyy"))
                 + " to: " + to.format(DateTimeFormatter.ofPattern("MMM dd yyyy")) + ")";

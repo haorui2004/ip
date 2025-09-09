@@ -25,6 +25,11 @@ public class DeadlineTask extends Task {
     }
 
     @Override
+    public String deDupKey() {
+        return this.getClass().getName() + "|" + normalizeKey(this.description) + "|" + this.by;
+    }
+
+    @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + by.format(DateTimeFormatter.ofPattern("MMM dd yyyy"))  + ")";
     }

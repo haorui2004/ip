@@ -8,7 +8,7 @@ public class DeadlineTaskTest {
     public void testToSaveLineStoresDateCorrectly() {
         DeadlineTask d = new DeadlineTask("return book", "2019-12-02");
         String expected = "D | 0 | return book | 2019-12-02";
-        assertEquals(expected, d.toSaveLine());
+        assertEquals(expected, d.toSaveableLine());
     }
 
     @Test
