@@ -17,6 +17,12 @@ public class AddCommand implements Command {
 
     @Override
     public String execute(TaskList tasks) {
+        int dupIndex = tasks.findDuplicated(task);
+        if (dupIndex != -1) {
+            return "This task has already been added!\n See task " + (dupIndex + 1) + " "
+                    + tasks.get(dupIndex) + "\n This task is not added again";
+        }
+
         tasks.addTask(task);
         return "Got it. I've added this task:\n"
                 + task

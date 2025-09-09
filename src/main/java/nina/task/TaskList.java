@@ -97,6 +97,15 @@ public class TaskList implements Serializable {
         }
     }
 
+    public int findDuplicated(Task t) {
+        String key = t.deDupKey();
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).deDupKey().equals((key))) {
+                return i;
+            }
+        }
+        return -1;
+    }
     /**
      * Returns an unmodifiable iterable view of the tasks.
      *

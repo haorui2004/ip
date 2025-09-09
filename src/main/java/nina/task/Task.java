@@ -114,6 +114,16 @@ public abstract class Task implements Serializable {
         return t;
     }
 
+    public String normalizeKey(String str) {
+        String s = str == null ? "" : str.trim().toLowerCase();
+        return s;
+    }
+
+    public String deDupKey() {
+        return this.getClass().getName() + "|" + normalizeKey(this.description);
+    }
+
+
     @Override
     public String toString() {
         return "[" + getStatusIcon() + "]" + " " + description;
