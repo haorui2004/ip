@@ -22,6 +22,7 @@ public class MainWindow extends AnchorPane {
 
     private Nina nina;
 
+    private static String LINE = "___________________________________\n";
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/User.png"));
     private Image ninaImage = new Image(this.getClass().getResourceAsStream("/images/Nina.png"));
 
@@ -45,7 +46,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
-        String response = nina.getResponse(input);
+        String response = LINE + nina.getResponse(input) + "\n" + LINE;
 
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),

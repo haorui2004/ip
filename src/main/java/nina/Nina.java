@@ -43,10 +43,10 @@ public class Nina {
 
             try {
                 Command cmd = Parser.parse(input);
-                System.out.print(LINE);
+                System.out.println(LINE);
                 cmd.execute(tasks);
                 storage.write(tasks);
-                System.out.print(LINE);
+                System.out.println(LINE);
             } catch (CommandException e) {
                 ui.showError("nina.command.Command error: " + e.getMessage());
             } catch (InvalidInputException i) {

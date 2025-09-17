@@ -28,30 +28,6 @@ public class TaskList implements Serializable {
     }
 
     /**
-     * Marks the task at the given position as done and prints confirmation.
-     *
-     * @param number index of the task to mark
-     */
-//    public void mark(int number) {
-//        Task t = tasks.get(number - 1);
-//        t.markDone();
-//        System.out.println("Nice! I've marked this task as done:");
-//        System.out.print("  " + t + "\n");
-//    }
-
-    /**
-     * Marks the task at the given position as not done and prints confirmation.
-     *
-     * @param number index of the task to mark
-     */
-//    public void unmark(int number) {
-//        Task t = tasks.get(number - 1);
-//        t.unmarkDone();
-//        System.out.println("Ok, I've marked this task as not done yet:");
-//        System.out.print("  " + t + "\n");
-//    }
-
-    /**
      * Returns the number of tasks in the list
      *
      * @return the total number of tasks in the list
