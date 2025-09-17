@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StorageTest {
     @Test
-    void testWriteAndRead(@TempDir Path tempDir) throws Exception {
+    public void testWriteAndRead(@TempDir Path tempDir) throws Exception {
         //suggested by Chatgpt to use TempDir instead of createTempFile
         Path storageTestFile = tempDir.resolve("storageTest.txt");
         Storage storage = new Storage(storageTestFile.toString());
@@ -38,7 +38,7 @@ public class StorageTest {
     }
 
     @Test
-    void testReadCreatesFileIfMissing(@TempDir Path tempDir) {
+    public void testReadCreatesFileIfMissing(@TempDir Path tempDir) {
         Path file = tempDir.resolve("dir/data.txt");
         Storage storage = new Storage(file.toString());
 

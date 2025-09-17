@@ -50,6 +50,7 @@ public class TaskList implements Serializable {
      * Deletes the task at the given position and prints confirmation.
      *
      * @param number index of the task to delete
+     * @return the task removed from the list
      */
     public Task delete(int number) {
         if (number < 1 || number > tasks.size()) {

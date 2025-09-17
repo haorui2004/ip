@@ -65,7 +65,7 @@ public abstract class Task implements Serializable {
     /**
      * Check if the description of a task contains a certain keyword
      * @param keyword the word to be checked for
-     * @return
+     * @return a boolean value indicating whether the two tasks match in keyword
      */
     public boolean match(String keyword) {
         return description.contains(keyword);
