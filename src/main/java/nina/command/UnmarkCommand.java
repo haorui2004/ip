@@ -23,7 +23,7 @@ public class UnmarkCommand implements Command {
         try {
             Task t = tasks.get(index - 1);
             t.unmarkDone();
-            return "Ok, I've marked this task as not done yet:" + t;
+            return "Ok, I've marked this task as not done yet:\n" + t;
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("That task doesn't exist.");
         }
