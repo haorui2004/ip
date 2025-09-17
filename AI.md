@@ -198,4 +198,10 @@ private static String afterPrefix(String s, String prefix) {
 } 
 ```
 ### Observation: 
-when directly asking GPT to improve the code quality by making the parse method shorter than 30LoC, the response was not up to expectation (30LoC). GPT shortens the code by changing it to another format (switch instead of if-else), but was only shortening the code by removing repetitive checks instead of breaking it into smaller methods or different levels of abstraction. Only with specific requirements like "Please break each if block into an individual method", GPT can then satisfy the expectation of 30LoC.
+when directly asking GPT to improve the code quality by making the parse method shorter than 30LoC, the response was not up to expectation (30LoC). GPT shortens the code by changing it to another format (switch instead of if-else), but was only shortening the code by removing repetitive checks instead of breaking it into smaller methods or different levels of abstraction. Only with specific requirements like "Please break each if block into an individual method", GPT can then satisfy the expectation of 30LoC.  
+
+## Testing
+### src/test/java/nina/StorageTest.java
+>ChatGPT assisted in enhancing my origin JUnit test  
+
+Initially, I used Files.createTempFile when I was trying to test my Storage class. ChatGPT suggested that TempDir can keep the test environment cleaner. Since createTempFile will create a real file and will not automatically remove it after testing, but directory made from TempDir will be automatically deleted after testing.
