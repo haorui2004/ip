@@ -202,6 +202,6 @@ when directly asking GPT to improve the code quality by making the parse method 
 
 ## Testing
 ### src/test/java/nina/StorageTest.java
->ChatGPT assisted in enhancing my origin JUnit test  
+>ChatGPT assisted in enhancing my original JUnit test  
 
 Initially, I used Files.createTempFile when I was trying to test my Storage class. ChatGPT suggested that TempDir can keep the test environment cleaner. Since createTempFile will create a real file and will not automatically remove it after testing, but directory made from TempDir will be automatically deleted after testing.
