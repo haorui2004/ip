@@ -14,11 +14,11 @@ No matter you are a student, working adult, or any one trying to be productive, 
 [Features](#features)
 
 - [add](#adding-a-task)
-- [list](#listing-tasks-list-)
-- [mark](#marking-a-task-as-done-mark-)
-- [unmark](#unmarking-a-task-as-done-unmark-)
-- [delete](#deleting-a-task-delete-)
-- [find](#finding-tasks-find-)
+- [list](#listing-tasks-list)
+- [mark](#marking-a-task-as-done-mark)
+- [unmark](#unmarking-a-task-as-done-unmark)
+- [delete](#deleting-a-task-delete)
+- [find](#finding-tasks-find)
 
 ## Features
 ### Adding a task
