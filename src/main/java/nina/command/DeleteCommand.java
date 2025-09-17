@@ -1,6 +1,7 @@
 package nina.command;
 
 import nina.CommandException;
+import nina.task.Task;
 import nina.task.TaskList;
 /**
  * Represents a DeleteCommand that can delete a task from the TaskList.
@@ -20,8 +21,10 @@ public class DeleteCommand implements Command {
     @Override
     public String execute(TaskList tasks) throws CommandException {
         try {
-            tasks.delete(index);
-            return "Now you have " + tasks.size() + " tasks in the list.";
+            Task removed = tasks.delete(index);
+            return "Noted. I've removed this task:\n"
+                    + "  " + removed + "\n"
+                    + "Now you have " + tasks.size() + " tasks in the list.";
         } catch (IndexOutOfBoundsException e) {
             throw new CommandException("That task doesn't exist");
         }

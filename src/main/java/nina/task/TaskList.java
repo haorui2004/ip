@@ -51,10 +51,11 @@ public class TaskList implements Serializable {
      *
      * @param number index of the task to delete
      */
-    public void delete(int number) {
-        Task t = tasks.remove(number - 1);
-        System.out.println("Noted. I've removed this task:\n");
-        System.out.print("  " + t + "\n");
+    public Task delete(int number) {
+        if (number < 1 || number > tasks.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        return tasks.remove(number - 1);
     }
 
     /**

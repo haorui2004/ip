@@ -19,9 +19,7 @@ public class UI {
      * Prints the exit message when the program is about to terminate.
      */
     public String exit() {
-        return LINE
-                + "See you again soon!\n"
-                + LINE;
+        return "See you again soon!\n";
     }
 
     /**
