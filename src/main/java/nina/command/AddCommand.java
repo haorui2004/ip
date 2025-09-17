@@ -3,6 +3,9 @@ package nina.command;
 import nina.task.Task;
 import nina.task.TaskList;
 
+/**
+ * Represents an AddCommand that can add a task to the TaskList.
+ */
 public class AddCommand implements Command {
     protected Task task;
 

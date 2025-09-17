@@ -2,10 +2,16 @@ package nina.command;
 
 import nina.task.Task;
 import nina.task.TaskList;
-
+/**
+ * Represents a FindCommand that can find all tasks in the TaskList with the keyword
+ */
 public class FindCommand implements Command {
     private String keyword;
-
+    /**
+     * Constructs a FindCommand object.
+     *
+     * @param keyword keyword of the task to be searched
+     */
     public FindCommand(String keyword) {
         this.keyword = keyword;
     }

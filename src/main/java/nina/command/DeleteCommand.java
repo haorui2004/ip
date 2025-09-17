@@ -2,7 +2,9 @@ package nina.command;
 
 import nina.CommandException;
 import nina.task.TaskList;
-
+/**
+ * Represents a DeleteCommand that can delete a task from the TaskList.
+ */
 public class DeleteCommand implements Command {
     protected int index;
 

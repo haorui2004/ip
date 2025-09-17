@@ -73,6 +73,11 @@ public class TaskList implements Serializable {
         }
     }
 
+    /**
+     * Finds duplicates of the input task in a tasklist
+     * @param t new task to be searched for duplicates when it is being added to the tasklist
+     * @return index of the first duplicate found, i
+     */
     public int findDuplicated(Task t) {
         String key = t.deDupKey();
         for (int i = 0; i < tasks.size(); i++) {

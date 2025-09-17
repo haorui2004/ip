@@ -3,6 +3,9 @@ package nina.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a DeadlineTask with description and by date
+ */
 public class DeadlineTask extends Task {
 
     protected LocalDate by;

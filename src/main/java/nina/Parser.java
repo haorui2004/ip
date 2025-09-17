@@ -25,7 +25,7 @@ public class Parser {
      * @throws InvalidInputException if the input format is invalid
      */
     public static Command parse(String raw)
-            throws CommandException, InvalidInputException {
+            throws CommandException, InvalidInputException { //This method is assisted by ChatGPT in shortening
         String s = sanitize(raw);
         Optional<Command> c;
         if ((c = tryList(s)).isPresent()) {
@@ -55,6 +55,7 @@ public class Parser {
         throw new InvalidInputException("I cannot find the command OvO");
     }
 
+    //the following 8 methods are broken down from parse by ChatGPT
     private static Optional<Command> tryList(String s) throws InvalidInputException {
         if (!s.equals("list")) {
             return Optional.empty();

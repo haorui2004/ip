@@ -3,7 +3,9 @@ package nina.command;
 import nina.CommandException;
 import nina.task.Task;
 import nina.task.TaskList;
-
+/**
+ * Represents a UnmarkCommand that can unmark a task's done status.
+ */
 public class UnmarkCommand implements Command {
     protected int index;
 

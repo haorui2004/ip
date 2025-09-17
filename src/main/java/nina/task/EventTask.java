@@ -2,7 +2,9 @@ package nina.task;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Represents an EventTask with description, from date, and to date
+ */
 public class EventTask extends Task {
     protected LocalDate from;
     protected LocalDate to;

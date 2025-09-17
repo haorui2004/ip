@@ -62,6 +62,11 @@ public abstract class Task implements Serializable {
      */
     public abstract String toSaveableLine();
 
+    /**
+     * Check if the description of a task contains a certain keyword
+     * @param keyword the word to be checked for
+     * @return
+     */
     public boolean match(String keyword) {
         return description.contains(keyword);
     }
@@ -79,7 +84,9 @@ public abstract class Task implements Serializable {
             p[i] = p[i].trim();
         }
 
-        if (p.length < 3) throw new IllegalArgumentException("Bad line: " + line);
+        if (p.length < 3) {
+            throw new IllegalArgumentException("Bad line: " + line);
+        }
 
         String type = p[0];
         boolean done = "1".equals(p[1]);
@@ -114,11 +121,20 @@ public abstract class Task implements Serializable {
         return t;
     }
 
+    /**
+     * Normalizes a string by removing trailing spaces and convert all letters to lowercase
+     * @param str string input to be normalized
+     * @return normalized String str with all letters converted to lowercase and with trailing spaces trimmed.
+     */
     public String normalizeKey(String str) {
         String s = str == null ? "" : str.trim().toLowerCase();
         return s;
     }
 
+    /**
+     * Generates a genetic deDupKey for a task
+     * @return a key with task type and task description which are to be used for de-duplication
+     */
     public String deDupKey() {
         return this.getClass().getName() + "|" + normalizeKey(this.description);
     }

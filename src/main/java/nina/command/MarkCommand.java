@@ -3,7 +3,9 @@ package nina.command;
 import nina.CommandException;
 import nina.task.Task;
 import nina.task.TaskList;
-
+/**
+ * Represents a MarkCommand that can mark a task as done in the TaskList.
+ */
 public class MarkCommand implements Command {
     protected int index;
 
