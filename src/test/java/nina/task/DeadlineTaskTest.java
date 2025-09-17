@@ -2,6 +2,10 @@ package nina.task;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.time.format.DateTimeParseException;
 
 public class DeadlineTaskTest {
     @Test
@@ -16,5 +20,17 @@ public class DeadlineTaskTest {
         DeadlineTask d = new DeadlineTask("return book", "2019-12-02");
         String expected = "[D][ ] return book (by: Dec 02 2019)";
         assertEquals(expected, d.toString());
+    }
+
+    @Test
+    void testEmptyDescription() {
+        DeadlineTask d = new DeadlineTask("", "2025-05-01");
+        assertTrue(d.toString().contains("(by: May 01 2025)"));
+    }
+
+    @Test
+    void testInvalidDate() {
+        assertThrows(DateTimeParseException.class,
+                () -> new DeadlineTask("return book", "Tue"));
     }
 }

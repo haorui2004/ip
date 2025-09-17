@@ -36,4 +36,15 @@ public class StorageTest {
 
         assertTrue(Files.exists(storageTestFile));
     }
+
+    @Test
+    void testReadCreatesFileIfMissing(@TempDir Path tempDir) {
+        Path file = tempDir.resolve("dir/data.txt");
+        Storage storage = new Storage(file.toString());
+
+        TaskList loaded = storage.read();
+        assertNotNull(loaded);
+        assertEquals(0, loaded.size());
+        assertTrue(Files.exists(file), "file should be created automatically.");
+    }
 }
