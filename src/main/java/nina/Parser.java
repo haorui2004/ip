@@ -14,11 +14,11 @@ import nina.task.EventTask;
 import nina.task.TodoTask;
 
 /**
-* Parses raw user input strings and convert them to corresponding commands
-*/
+ * Parses raw user input strings and convert them to corresponding commands
+ */
 public class Parser {
     /**
-            * Parses a raw input string into a command object
+     * Parses a raw input string into a command object
      * @param raw raw input from user
      * @return Command object corresponding to the input
      * @throws CommandException if the input is empty
