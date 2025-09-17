@@ -11,7 +11,7 @@ public class UI {
      * Prints the greeting message when the program starts.
      */
     public String greet() {
-        return LINE + "Hello, I am your personal assistant nina.Nina\n"
+        return LINE + "Hello, I am your personal assistant Nina\n"
                 + "What can I do for you?\n" + LINE;
     }
 
