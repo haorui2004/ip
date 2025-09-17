@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import nina.Nina;
 
 /**
- * A GUI for Duke using FXML.
+ * A GUI for Nina using FXML.
  */
 public class Main extends Application {
 
@@ -21,6 +21,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
+            stage.setTitle("Nina");
             fxmlLoader.<MainWindow>getController().setNina(nina);
             stage.show();
         } catch (IOException e) {
