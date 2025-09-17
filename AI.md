@@ -1,7 +1,7 @@
-##Record of use of AI tools  
-#Code Quality 
-1. src/main/java/nina/Parser.java  
-ChatGPT assisted in shortening the long method.  
+# Record of use of AI tools
+## Code Quality 
+### src/main/java/nina/Parser.java  
+>ChatGPT assisted in shortening the long method.  
 original method:  
 ```Java
 public static Command parse(String str) throws CommandException, InvalidInputException {
@@ -197,4 +197,5 @@ private static String afterPrefix(String s, String prefix) {
     return s.substring(prefix.length()).trim();
 } 
 ```
-Observation: when directly asking GPT to improve the code quality by making the parse method shorter than 30LoC, the response was not up to expectation (30LoC). GPT shortens the code by changing it to another format (switch instead of if-else), but was only shortening the code by removing repetitive checks instead of breaking it into smaller methods or different levels of abstraction. Only with specific requirements like "Please break each if block into an individual method", GPT can then satisfy the expectation of 30LoC.
+### Observation: 
+when directly asking GPT to improve the code quality by making the parse method shorter than 30LoC, the response was not up to expectation (30LoC). GPT shortens the code by changing it to another format (switch instead of if-else), but was only shortening the code by removing repetitive checks instead of breaking it into smaller methods or different levels of abstraction. Only with specific requirements like "Please break each if block into an individual method", GPT can then satisfy the expectation of 30LoC.
