@@ -4,11 +4,13 @@ import nina.task.DeadlineTask;
 import nina.task.TaskList;
 import nina.task.TodoTask;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StorageTest {
@@ -31,5 +33,16 @@ public class StorageTest {
 
         assertEquals(original.get(0).toString(), loaded.get(0).toString());
         assertEquals(original.get(1).toString(), loaded.get(1).toString());
+    }
+
+    @Test
+    void testReadCreatesFileIfMissing(@TempDir Path tempDir) {
+        Path file = tempDir.resolve("dir/data.txt");
+        Storage storage = new Storage(file.toString());
+
+        TaskList loaded = storage.read();
+        assertNotNull(loaded);
+        assertEquals(0, loaded.size());
+        assertTrue(Files.exists(file), "file should be created automatically.");
     }
 }
