@@ -46,10 +46,6 @@ test {
     }
 }
 
-application {
-    mainClass.set("Main")
-}
-
 shadowJar {
     archiveBaseName = "nina"
     archiveVersion = "v0.2"
