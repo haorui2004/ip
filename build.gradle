@@ -52,6 +52,7 @@ application {
 
 shadowJar {
     archiveBaseName = "nina"
+    archiveVersion = "v0.2"
     archiveClassifier = null
 }
 
